@@ -35,9 +35,9 @@ WAITING_FOR_RESELLER_REMOVE = 6
 current_attack = None
 attack_lock = threading.Lock()
 cooldown_until = 0
-COOLDOWN_DURATION = 40
+COOLDOWN_DURATION = 5
 MAINTENANCE_MODE = False
-MAX_ATTACKS = 40 
+MAX_ATTACKS = 40
 user_attack_counts = {}  
 
 USER_PRICES = {
@@ -192,7 +192,7 @@ def load_cooldown():
     try:
         with open('cooldown.json', 'r') as f:
             data = json.load(f)
-            return data.get("cooldown", 40)
+            return data.get("cooldown", 5)
     except FileNotFoundError:
         return 40
 
